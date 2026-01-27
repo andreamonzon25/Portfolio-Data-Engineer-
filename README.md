@@ -101,9 +101,10 @@ El flujo de datos se ejecuta de manera secuencial para garantizar la consistenci
     Transformación de Negocio: Integración de funciones de paquetes remotos para el cálculo dinámico de intereses y estados de cuenta en tiempo real durante la carga.
 
 
+### Diagrama de Arquitectura ETL
 
-
-    graph TD
+```mermaid
+graph TD
     subgraph "Origen: Sistema Operativo (TCSDISC)"
         A1[(tbl_planes_facilidades)]
         A2[(tbl_vencimientos)]
