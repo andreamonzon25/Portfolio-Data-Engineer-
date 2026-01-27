@@ -27,9 +27,9 @@ v_fecha_presentacion date;
                  pa_funciones_generales.convierte_a_numero_prueba(d1.col12) favor_dgr,
                   pa_funciones_generales.convierte_a_numero_prueba(d1.col03) pagos_cuenta,
                  pa_funciones_generales.convierte_a_numero_prueba(d1.col08) descuento
-          FROM   tbl_vencimientos@tcsdisc.dgrcorrientes.gov.ar v,
-          tbl_detalles_ddjj@tcsdisc.dgrcorrientes.gov.ar d1,
-          ddjj_para_procesar@tcsprod.dgrcorrientes.gov.ar f
+          FROM   tbl_vencimientos@tcsdisc v,
+          tbl_detalles_ddjj@tcsdisc d1,
+          ddjj_para_procesar@tcsprod f
             WHERE   v.impuesto = d1.impuesto(+)
                  AND v.concepto_obligacion = d1.concepto_obligacion(+)
                  AND v.numero_obligacion_impuesto = d1.numero_obligacion_impuesto(+)
@@ -106,7 +106,7 @@ end;
 
 v_fecha_presentacion:=null;
  select  distinct(fecha_presentacion) into v_fecha_presentacion
-from tbl_vencimientos@tcsdisc.dgrcorrientes.gov.ar c
+from tbl_vencimientos@tcsdisc c
 where  c.impuesto='0035'
 and c.concepto_obligacion='0017'
 and c.numero_obligacion_impuesto=i.numero_obligacion_impuesto
